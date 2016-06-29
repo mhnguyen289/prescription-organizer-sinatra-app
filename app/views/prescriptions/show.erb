@@ -3,7 +3,7 @@
 <h4>Prescription Pills</h4>
 <% @prescription.pill_ids.each do |id| %>
   <p>Prescription Pill: 		<%= Pill.find(id).name %></p>
-  <p>Instructions: 		<%= Pill.find(id).brand %></p>
+  <p>Instructions: 		<%= Pill.find(id).instruction %></p>
   <p>Exp. date: 		<%= Pill.find(id).exp_date %></p>
   <br>
 <% end %>

@@ -7,3 +7,5 @@ class CreatePrescriptions < ActiveRecord::Migration
   	end
   end
 end
+
+
