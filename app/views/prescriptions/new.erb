@@ -1,0 +1,17 @@
+<h1>Add a New Prescription Schedule</h1>
+
+<form action="/prescriptions" method="POST">
+  <label>Prescription Schedule Name </label>
+  <input type="text" name="name"> </br>
+
+<h5>Add Existing Prescription Pills</h5>
+   <%Pill.all.each do |pill|%>
+   <input type="checkbox" name="prescription[pill_ids][]" id="<%=pill.id%>" value="<%=pill.id%>"> <%= pill.name %> </input>
+ <%end%>
+<h4>Add New Prescription Pills</h4>
+ <label>How Many?</label>
+ <input type="number" name="pill_count" id="pill_count"><br>
+ <br>
+
+<input type="submit" value="Create">
+</form>

@@ -1,0 +1,19 @@
+<% if @prescription %>
+<h1>Add New Prescriptions for <%= @prescription.name %></h1>
+
+<form action="/prescriptions/<%= @prescription.id %>?count=<%=@count%>" method="POST">
+  <% for i in 1..@count %>
+  
+  <label>Pill Name </label>
+  <p><input type="text" name="name_<%=i%>"></p>
+
+  <label>Instructions</label>
+  <p><input type="text" name="brand_<%=i%>"></p>
+  
+  <label>Exp. Date </label>
+  <p><input type="date" name="exp_date_<%=i%>"></p>
+  <% end %>
+
+  <input type="submit" value="Add Prescription Drug">
+</form>
+<% end %>

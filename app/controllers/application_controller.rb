@@ -1,7 +1,6 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
 	configure do
 		set :public_folder, 'public'
 	  set :views, 'app/views'
@@ -34,5 +33,4 @@ class ApplicationController < Sinatra::Base
 		@error_message = params[:error]
 	end
   end
-
 end

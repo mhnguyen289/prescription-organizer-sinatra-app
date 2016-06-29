@@ -1,0 +1,10 @@
+ <h3>Brand: <em><%= @pill.brand %></em></h3>
+ <h3>Instructions: <em><%= @pill.name %></em></h3>
+ <h3>Exp. Date: <em><%= @pill.exp_date %></em></h3>
+ 
+ <form action="<%="/pills/#{@pill.id}/edit"%>" method="GET">
+ 	<input type="submit" value="Edit Pill">
+ </form><br>
+ <form action="<%="/pills/#{@pill.id}/delete"%>" method="POST">
+ 	<input type="submit" value="Delete Pill">
+ </form>

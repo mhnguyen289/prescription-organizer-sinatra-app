@@ -1,0 +1,18 @@
+<h1>Edit Pill</h1>
+
+<form action="/pills/<%= @pill.id %>?prescription_pill_id=<%=@prescription_id%>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label>Pill Name </label>
+  <p><input type="text" name="name" value="<%=@pill.name%>"></p>
+  
+  <label>Exp. Date </label>
+  <p><input type="date" name="exp_date" value="<%=@pill.exp_date%>"></p>
+  
+  <label>Instructions </label>
+  <p><textarea cols="25" rows="3" name="brand" value="<%=@pill.brand%>"></textarea></p>
+ 
+
+  <input type="submit" value="Edit Pill">
+
+</form>
