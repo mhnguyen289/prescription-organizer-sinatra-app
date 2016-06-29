@@ -1,0 +1,18 @@
+<h1>Hello, <%= @user.username %>!</h1>
+<h4>Here's Your Current Prescription Schedule for <%= Time.now.strftime("%A, %m/%d") %>: </h4>
+<% @prescriptions.each do |prescription| %>
+  <% if prescription.active %>
+    <h5><%= prescription.name %></h5>
+    <% prescription.pills.each do |pill| %>
+      <p><%= pill.name%></p>
+    <% end %>
+  <% end %>
+<% end %>
+<h4>Your Saved Prescription Plans:</h4>
+<% @prescriptions.each do |prescription| %>
+  <p><a href="/prescriptions/<%=prescription.id%>"><%= prescription.name %></a></p>
+  
+<% end %>
+<form action="/prescriptions/new" method="GET">
+<input class="btn btn-primary" type="submit" value="Add Prescription Pill">
+</form>

@@ -1,0 +1,2 @@
+class PresriptionsController < ApplicationController 
+end
