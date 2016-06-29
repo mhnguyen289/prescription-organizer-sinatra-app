@@ -12,7 +12,9 @@
 <% @prescriptions.each do |prescription| %>
   <p><a href="/prescriptions/<%=prescription.id%>"><%= prescription.name %></a></p>
   
+
 <% end %>
+
 <form action="/prescriptions/new" method="GET">
 <input class="btn btn-primary" type="submit" value="Add Prescription Pill">
 </form>

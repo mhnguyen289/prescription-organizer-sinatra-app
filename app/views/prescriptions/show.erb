@@ -1,14 +1,17 @@
-<h1><%= @prescription.name %> <a href="/prescriptions/<%=@prescription.id%>/edit"></a>
-<h3>(edit)</h3>
+<h1><%= @prescription.name %> 
 
-<h1><a href="/prescriptions/<%=@prescription.id%>/delete"></a></h1>
-<h3>(delete)</h3>
+<h3><a href="/prescriptions/<%=@prescription.id%>/edit">(edit)</a>
+<a href="/prescriptions/<%=@prescription.id%>/delete">(delete)</h3></a>
+<br>
 
 <h4>Prescription Pills</h4>
-<% @prescription.pill_ids.each do |id| %>
+<p><% @prescription.pill_ids.each do |id| %>
   <p>Prescription Pill: 		<%= Pill.find(id).name %></p>
   <p>Instructions: 		<%= Pill.find(id).instruction %></p>
   <p>Exp. date: 		<%= Pill.find(id).exp_date %></p>
+  <a href="http://www.rxlist.com/script/main/srchcont_rxlist.asp" target="_blank">Search Prescription</a>
+  </p>
   <br>
+  
 <% end %>
 
