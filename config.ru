@@ -7,5 +7,8 @@ end
 use Rack::MethodOverride
 use UsersController
 use PillsController
+use PrescriptionsController
+use UsersController
+
 
 run ApplicationController

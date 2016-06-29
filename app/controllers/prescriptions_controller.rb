@@ -20,10 +20,10 @@ class PrescriptionsController < ApplicationController
     counter = 1
     while (params["name_#{counter.to_s}"])
       name = params["name_#{counter.to_s}"]
-      brand = params["brand_#{counter.to_s}"]
+      instruction = params["instruction_#{counter.to_s}"]
       exp_date = params["exp_date_#{counter.to_s}"]
       # error checking
-      if name == "" || exp_date == "" || brand == ""
+      if name == "" || exp_date == "" || instruction == ""
         redirect "/pills/new/#{@prescription.id}?error=Field(s) cannot be left blan
         k"
       elsif Pill.find_by(name: name) != nil
@@ -35,7 +35,7 @@ class PrescriptionsController < ApplicationController
         redirect "/pills/new/#{@prescription.id}?error=#{name} already exists"
       else
       @pill = Pill.create(name: params["name_#{counter.to_s}"], 
-        brand: params["brand_#{counter.to_s}"],
+        instruction: params["instruction_#{counter.to_s}"],
         exp_date: params["exp_date_#{counter.to_s}"])
       @prescription.pill_ids = (@prescription.pill_ids << @pill.id)
       @prescription.save

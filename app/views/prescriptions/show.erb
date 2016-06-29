@@ -1,4 +1,8 @@
-<h1><%= @prescription.name %> <a href="/prescriptions/<%=@prescription.id%>/edit">(edit)</a> <a href="/prescriptions/<%=@prescription.id%>/delete">(delete)</a></h1>
+<h1><%= @prescription.name %> <a href="/prescriptions/<%=@prescription.id%>/edit"></a>
+<h3>(edit)</h3>
+
+<h1><a href="/prescriptions/<%=@prescription.id%>/delete"></a></h1>
+<h3>(delete)</h3>
 
 <h4>Prescription Pills</h4>
 <% @prescription.pill_ids.each do |id| %>

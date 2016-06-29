@@ -52,13 +52,13 @@ class PillsController < ApplicationController
     
 
    patch "/pills/:id" do
-   		binding.pry
-    if params[:name] == "" || params[:brand] == "" || params[:exp_date] == ""
+   		
+    if params[:name] == "" || params[:instruction] == "" || params[:exp_date] == ""
       redirect "/pills/#{params[:id]}/edit?error=Field(s) cannot be left blank"
     end
     @pill = Pill.find(params[:id])
     @pill.name = params[:name]
-    @pill.brand = params[:brand]
+    @pill.instruction = params[:instruction]
     @pill.exp_date = params[:exp_date]
     @pill.save
     redirect "/prescriptions/#{params[:prescription_id]}/edit"

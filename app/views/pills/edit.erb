@@ -1,6 +1,6 @@
 <h1>Edit Pill</h1>
 
-<form action="/pills/<%= @pill.id %>?prescription_pill_id=<%=@prescription_id%>" method="POST">
+<form action="/pills/<%= @pill.id %>?prescription_id=<%=@prescription_id%>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="patch">
 
   <label>Pill Name </label>
