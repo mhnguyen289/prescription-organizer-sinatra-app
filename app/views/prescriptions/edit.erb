@@ -1,0 +1,33 @@
+<h1>Edit <%= @prescription.name %></h1>
+
+<form action="/prescriptions/<%=@prescription.id %>" method="POST">
+<input id="hidden" type="hidden" name="_method" value="patch">
+  <label> Prescription Name </label>
+  <input type="text" name="name" value="<%=@prescription.name %>"> </br>
+
+<% @prescription.pill_ids.each do |id| %>
+
+  <p><%= Pill.find(id).name %>
+   <a href="/pills/<%=id%>/edit?prescription_id=<%=@prescription.id%>">(edit)</a>
+   <a href="/pills/<%=id%>/unlink?prescription_id=<%=@prescription.id%>">(remove from prescription)</a>
+   <a href="/pills/<%=id%>/delete?prescription_id=<%=@prescription.id%>">(delete)</a>
+  </p>
+  <p>Name: <%= Pill.find(id).name %></p>
+  <p>Exp_date: <%= Pill.find(id).exp_date %></p>
+  <p>Insturctions: <%= Pill.find(id).brand %></p>
+  <br>
+<% end %>
+
+<input type="checkbox" name="active" id="active" value=false>Current Prescription</input>
+
+<h4>Add Existing Prescription Pills</h4>
+   <%Pill.not_linked_to(@prescription.id).each do |pill|%>
+     <input type="checkbox" name="prescription[pill_ids][]" id="<%=pill.id%>" value="<%=pill.id%>"> <%= pill.name %> </input>
+   <%end%>
+<h4>Add New Prescription Pills</h4>
+ <label>How Many?</label>
+ <input type="number" name="pill_count" id="pill_count"><br>
+ <br>
+
+  <input type="submit" value="Update">
+</form>
