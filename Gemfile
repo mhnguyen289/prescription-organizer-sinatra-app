@@ -11,7 +11,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 
-group :test do
+group :development, :test do
   gem 'sqlite3'
   gem 'rspec'
   gem 'capybara'
