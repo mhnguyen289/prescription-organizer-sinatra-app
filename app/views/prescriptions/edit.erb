@@ -6,7 +6,6 @@
   <input type="text" name="name" value="<%=@prescription.name %>"> </br>
 
 <% @prescription.pill_ids.each do |id| %>
-
   <p><%= Pill.find(id).name %>
    <a href="/pills/<%=id%>/edit?prescription_id=<%=@prescription.id%>">(edit)</a>
    <a href="/pills/<%=id%>/unlink?prescription_id=<%=@prescription.id%>">(remove from prescription)</a>
