@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'sinatra'
+gem 'sinatra', '1.4.7'
 gem 'activerecord', :require => 'active_record'
 gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
 gem 'rake'
@@ -13,7 +13,7 @@ gem 'pry'
 gem 'bcrypt'
 gem "tux"
 
-group :development, :test do
+group :development do
   gem 'sqlite3'
   gem 'rspec'
   gem 'capybara'
@@ -22,4 +22,5 @@ end
 
 group :production do
   gem 'pg'
+  
 end
