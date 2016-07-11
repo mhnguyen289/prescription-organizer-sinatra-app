@@ -30,6 +30,7 @@ class PillsController < ApplicationController
   end
 
   get '/pills/:id/edit' do
+    binding.pry
   	@pill = Pill.find(params[:id])
   	@error_msg = params[:error]
   	@prescription_id = params[:prescription_id]
@@ -50,9 +51,7 @@ class PillsController < ApplicationController
     redirect "/prescriptions/#{params[:prescription_id]}/edit"
  end
     
-
-   patch "/pills/:id" do
-   		
+   patch "/pills/:id" do 		
     if params[:name] == "" || params[:instruction] == "" || params[:exp_date] == ""
       redirect "/pills/#{params[:id]}/edit?error=Field(s) cannot be left blank"
     end
@@ -62,14 +61,5 @@ class PillsController < ApplicationController
     @pill.exp_date = params[:exp_date]
     @pill.save
     redirect "/prescriptions/#{params[:prescription_id]}/edit"
-  end
-
-  get '/pills/:id/delete' do
-    if logged_in?
-      Pill.find(params[:id]).destroy
-      redirect "/prescriptions"
-    else
-      redirect "/login"
-    end
   end
 end

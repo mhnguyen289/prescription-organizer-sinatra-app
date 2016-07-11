@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-ruby '2.3.0'
+
 
 gem 'sinatra', '1.4.7'
 gem 'activerecord', :require => 'active_record'
@@ -12,15 +12,12 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem "tux"
+gem 'sqlite3'
 
 group :development, :test do
-  gem 'sqlite3'
+  
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
 end
 
-group :production do
-  gem 'pg'
-  
-end

@@ -107,6 +107,7 @@ class PrescriptionsController < ApplicationController
 
   get '/prescriptions/:id' do
     if logged_in?
+        binding.pry
       @prescription = Prescription.find(params[:id])
       erb :'prescriptions/show'
     else
